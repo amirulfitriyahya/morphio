@@ -98,6 +98,7 @@ module.exports = function (io, activeRooms){
                                 mongoose.connect(uri).then((result) => console.log('connected to db from gmplay sesh')).catch((err) => console.log(err));
                                 Quiz.find()
                                 .then(result => {
+                                    console.log(result);
                                     let transformedData = transformQuizData(result);
                                     serverQuizStation[details.roomCode] = transformedData;
                                     resolve();
