@@ -60,8 +60,8 @@ function enterKey(e) {
 
             document.styleSheets[0].cssRules[8].style.content = `"${playername}@morphio.com:~$"`;
 
-            music.overworld.play();
-            music.overworld.fade(0,0.2,10000);
+            //music.overworld.play();
+            //music.overworld.fade(0,0.2,10000);
             return;
         }
 

@@ -61,6 +61,29 @@ app.get('/', (req, res) => {
     res.sendFile(indexPath)
 })
 
+// Test route
+app.get('/test', (req, res) => {
+    console.log("test route");
+
+    const mongoose = require('mongoose');
+    const uri = 'mongodb+srv://shareduser:shareduser@shareddatabase.dc3imbq.mongodb.net/?retryWrites=true&w=majority&appName=shareddatabase';
+    const QuizSahur = require('./QuizGSahur.js');
+
+    try {
+        mongoose.connect(uri).then((result) => console.log('connected to db from gmplay sesh')).catch((err) => console.log(err));
+        QuizSahur.find()
+        .then(result => {
+            console.log(result);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    } catch {
+        console.error(error);
+        throw error;
+    }
+})
+
 // Game Room route
 /*app.get('/game/:roomId', (req, res) => {
     // Render the game page with the provided room ID
